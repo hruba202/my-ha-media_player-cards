@@ -1,0 +1,21 @@
+type: custom:vertical-stack-in-card
+cards:
+  - type: media-control
+    entity: media_player.voice_mass_2
+  - type: custom:entity-attributes-card
+    heading_name: []
+    heading_state: []
+    filter:
+      include:
+        - key: media_player.voice_mass_2.app_id
+          name: aplikace
+        - key: media_player.voice_mass_2.media_title
+          name: název skladby
+        - key: media_player.voice_mass_2.media_artist
+          name: umělec
+        - key: media_player.voice_mass_2.volume_level
+          name: hlasitost
+        - key: media_player.voice_mass_2.media_duration
+          name: doba trvání
+        - key: media_player.voice_mass_2.media_position
+          name: stav
