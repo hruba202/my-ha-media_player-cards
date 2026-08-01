@@ -1,0 +1,48 @@
+type: custom:vertical-stack-in-card
+cards:
+  - type: entities
+    entities:
+      - entity: media_player.voice_mass_2
+  - type: custom:button-card
+    entity: media_player.voice_mass_2
+    show_name: false
+    show_state: false
+    show_icon: false
+    aspect_ratio: 1/1
+    tap_action:
+      action: navigate
+      navigation_path: http://192.168.0.36:8123/d5369777_music_assistant
+    hold_action:
+      action: none
+    styles:
+      card:
+        - border-radius: var(--ha-card-border-radius, 14px)
+        - overflow: hidden
+        - background-size: 100% 100%, contain
+        - background-repeat: no-repeat, no-repeat
+        - background-position: center, center
+        - background-image: |
+            [[[ 
+              var url = states['media_player.voice_mass_2'].attributes.entity_picture_local
+                || states['media_player.voice_mass_2'].attributes.entity_picture
+                || '/local/images/playing.png';
+              var gradient = 'linear-gradient(to bottom, rgba(0,0,0,0) 60%, rgba(0,0,0,0.75) 100%)';
+              return gradient + ", url('" + url + "')";
+            ]]]
+  - type: custom:entity-attributes-card
+    heading_name: []
+    heading_state: []
+    filter:
+      include:
+        - key: media_player.voice_mass_2.app_id
+          name: aplikace
+        - key: media_player.voice_mass_2.media_title
+          name: název skladby
+        - key: media_player.voice_mass_2.media_artist
+          name: umělec
+        - key: media_player.voice_mass_2.volume_level
+          name: hlasitost
+        - key: media_player.voice_mass_2.media_duration
+          name: doba trvání
+        - key: media_player.voice_mass_2.media_position
+          name: stav
